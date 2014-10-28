@@ -1,28 +1,9 @@
-#Find PI to the Nth Digit Using Gauss Legendre algorithm
-
-from __future__ import division
 import math
 
-def square(x):
-	return x*x
+num_digit = int(raw_input("Enter # of digits you want\n "))
 
-#Algorithm initial setting via Wikipedia
-a = 1
-b = 1/(math.sqrt(2)) 
-t = 1/4
-p = 1
-
-print ('Enter the number of digits you want to find Pi to(less than 20 please):')
-user_choice = raw_input()
-if(int(user_choice) < 20):
-	for i in user_choice:
-		y = a
-		a = (a+b)/2
-		b = math.sqrt(y*b)
-		t = t - p * square(y-a)
-		p = 2*p
-		
-pi = (square(a+b))/(4*t)
-print pi
-
-
+while num_digit > 20:
+	print "Too Large"
+	num_digit = int(raw_input("Enter # of digits you want\n"))
+else:
+	print '%.*f' % (num_digit, math.pi)
